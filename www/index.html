@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <title>Eisbaer SCADA WebApp</title>
+
+    <link rel="apple-touch-icon-precomposed" href="img/webapp_icon.png">
+    <link href="img/webapp_splash_640x1096.png"
+          media="(device-width: 320px) and (device-height: 568px)
+         and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/checkUser.js"></script>
+    <script type="text/javascript" src="js/webApp.js"></script>
+
+    <!-- crypto-js -->
+    <script src="js/cryptojs/components/core-min.js"></script>
+    <script src="js/cryptojs/components/enc-base64-min.js"></script>
+    <script src="js/cryptojs/components/enc-utf16-min.js"></script>
+    <script src="js/cryptojs/rollups/aes.js"></script>
+    <script src="js/cryptojs/rollups/sha512.js"></script>
+
+    <style type="text/css">
+        html.fullscreen,
+        html.fullscreen body,
+        html.fullscreen iframe {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            border: none;
+            overflow: hidden;
+        }
+
+        .form-wrapper {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="content" class="default">
+    <script type="text/javascript">
+        // Variablen, die dynamisch belegt werden müssen
+        var eisbaerConfig = {
+            host: location.hostname,
+            port: %%port%%,
+            wsPort: %%wsport%%,
+            tls: %%tls%%,
+            webAppPath: "%%webAppPath%%"
+        };
+
+        checkUser.host = "http://" + eisbaerConfig.host + ':' + eisbaerConfig.port;
+    </script>
+    <div class="container">
+        <h1 style="text-align: center;">Eisbaer SCADA WebApp</h1>
+        <div class="form-wrapper">
+            <form>
+                <div class="form-group">
+                    <label for="eis_user">Eisbaer 账号</label>
+                    <input type="text" class="form-control" id="eis_user" name="eis_user" placeholder="Eisbaer 账号"
+                           value="Guest">
+                </div>
+                <div class="form-group">
+                    <label for="eis_pass">Eisbaer 密码</label>
+                    <input type="password" class="form-control" id="eis_pass" name="eis_pass"
+                           placeholder="Eisbaer 密码">
+                </div>
+                <button type="submit" class="btn btn-default" data-loading-text="登录中...">登录</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
