@@ -14,12 +14,27 @@ Absenden >> 登录 <br/>
 
 修改完成后，用UTF-8格式保存。
 
-2，修改报错内容
+2，修改登录界面的报错内容 <br/>
 C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\js\webApp.js  <br/>
 
 Fehler! >> 错误！ <br/>
 Authentifizierung fehlgeschlagen >> 认证失败 <br/>
 Verbindung zum Eisbaer Server fehlgeschlagen >> 连接到Eisbaer服务器失败  <br/>
 
+3，增加控件的默认语言 <br/>
+C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\js\eisbaer\eisbaerSync.js
 
+        eisbaerLanguages = ["de-DE", "en-US"];
+增加中文语言zh-CN
+
+        eisbaerLanguages = ["zh-CN","de-DE", "en-US"];
           
+4，修改控件的翻译文件，增加中文内容 <br/>
+4.1，日历编辑控件 <br/>
+C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\js\eisbaer\components\calendarEditorComponent\translation.js <br/>
+在en:{英文翻译}语言后，添加 <br/>
+
+, <br/>
+zh: { 中文翻译 <br/>
+}
+	
