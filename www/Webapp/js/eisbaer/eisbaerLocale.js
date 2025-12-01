@@ -1,6 +1,6 @@
 var eisbaerLocale = {
-  locale: 'zh_CN',
-  supportedLocales: ['zh_CN','de_DE', 'en_US'],
+  locale: window.localStorage.getItem('locale') || 'en_US',
+  supportedLocales: ['zh_CN', 'en_US'],
   strings: {},
   key: 'en',
   translate: function (variable, params) {
@@ -28,11 +28,13 @@ var eisbaerLocale = {
 
       // check if a valid locale
       if (eisbaerLocale.supportedLocales.indexOf(loc) == -1) {
-        if (loc.substring(0, 2) == 'zh') {
-          loc = 'zh_CN';
-        } else {
-          loc = 'en_US';
-        }
+        if (loc.substring(0, 2) == 'de') {
+          loc = 'de_DE';
+        } else if (prefix == 'zh') {
+			 loc = 'zh_CN';
+			} else {
+			loc = 'en_US';
+			}
       }
 
       eisbaerLocale.key = loc.substring(0, 2);
@@ -55,6 +57,7 @@ var eisbaerLocale = {
   loadStrings: function () {
     $('head').append('<script type="text/javascript" src="js/locale/locale-de-DE.js" />');
     $('head').append('<script type="text/javascript" src="js/locale/locale-en-US.js" />');
+	$('head').append('<script type="text/javascript" src="js/locale/locale-zh-CN.js" />');
   },
 
   translatePage: function () {
