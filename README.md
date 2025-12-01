@@ -37,7 +37,7 @@ C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\js\eisbaer\componen
 , <br/>
 zh: { 中文翻译 <br/>
 }
-	<br/>其余控件的修改方式相似。
+	<br/>其余控件的修改方式相似。	<br/>
 5，C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\index.html<br/>
 修改默认语言<br/>
 
