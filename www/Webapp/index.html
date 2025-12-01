@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="date=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta http-equiv="Content-Security-Policy" />
+  <meta -equiv="Content-Security-Policy"
+    content=" default-src * gap://ready file://* * data: blob: 'unsafe-inline' 'unsafe-eval' ws: wss: cdvfile: filesystem: file:; img-src * ionic://* 'self' data: content:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; worker-src 'self' data: blob: *; media-src *;" />
+
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport"
+    content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-2.0-original.css" />
+  <link rel="stylesheet" type="text/css" href="css/colorThemes.css" />
+  <link rel="stylesheet" type="text/css" href="css/spectrum.css" />
+  <link rel="stylesheet" type="text/css" href="css/circolor.css" />
+  <link rel="stylesheet" type="text/css" href="css/flipclock.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/controllers.css" />
+  <link rel="stylesheet" type="text/css" href="css/alarmManager.css" />
+  <link rel="stylesheet" type="text/css" href="css/lightscene.css" />
+  <link rel="stylesheet" type="text/css" href="css/consumption.css" />
+  <link rel="stylesheet" type="text/css" href="css/mobiscroll.custom-2.6.2.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/alarmclock.css" />
+  <link rel="stylesheet" type="text/css" href="css/maximum.css" />
+  <link rel="stylesheet" type="text/css" href="css/dalidisplay/dalidisplay.css" />
+  <!-- nestedList -->
+  <link rel="stylesheet" type="text/css" href="css/nestedlist.css" />
+  <link rel="stylesheet" type="text/css" href="css/fontAwesome/css/font-awesome.min.css" />
+  <!-- calendar -->
+  <link rel="stylesheet" type="text/css" href="css/calendar.css" />
+  <link rel="stylesheet" type="text/css" href="css/mycalendar/mycalendar.css" />
+  <!-- calendar -->
+  <link rel="stylesheet" type="text/css" href="css/plotterComponent.css" />
+  <link rel="stylesheet" type="text/css" href="css/plotterChannels.css" />
+  <script type="text/javascript" src="js/weinre.js"></script>
+  <script type="text/javascript" src="js/libs/bind.js"></script>
+  <script type="text/javascript" src="js/libs/jquery.js"></script>
+  <script type="text/javascript" src="js/libs/jquery.mobile-1.3.2.js"></script>
+  <script type="text/javascript" src="js/libs/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/libs/jquery.xml2json.js"></script>
+  <script type="text/javascript" src="js/libs/jquery.highlight-5.js"></script>
+  <script type="text/javascript" src="js/libs/tinymce/jquery.tinymce.min.js"></script>
+  <!--<script type="text/javascript" src="js/date/date.js"></script>-->
+  <script type="text/javascript">
+    // load datejs based on locale
+    var loadDateJs = function () {
+      var locale =  'zh_CN';
+      var datesrc = 'js/libs/date/date-' + locale.replace('_', '-') + '.js';
+      document.write('<script type="text/javascript" src="' + datesrc + '"><' + '/script>');
+    };
+
+    if (typeof MSApp != 'undefined' && MSApp.execUnsafeLocalFunction) {
+      MSApp.execUnsafeLocalFunction(loadDateJs);
+    } else {
+      loadDateJs();
+    }
+
+    if (cordova.platformId == 'browser' && navigator.userAgent.indexOf('Chrome/') != -1) {
+      // load VXG Player
+      document.write('<script type="text/javascript" src="js/libs/vxgplayer-1.8.11.min.js"><' + '/script>');
+      document.write('<link rel="stylesheet" href="css/vxgplayer-1.8.11.min.css" />');
+    }
+  </script>
+  <!--<script type="text/javascript" src="js/date/date-de-DE.js"></script>-->
+  <script type="text/javascript" src="js/libs/timeentry/jquery.timeentry.js"></script>
+  <script type="text/javascript" src="js/libs/bignumber.js"></script>
+  <script type="text/javascript" src="js/libs/qrcode.js"></script>
+  <script type="text/javascript" src="js/libs/spectrum.js"></script>
+  <script type="text/javascript" src="js/libs/URI.js"></script>
+  <script type="text/javascript" src="js/libs/mobiscroll.custom-2.6.2.min.js"></script>
+
+  <!-- crypto-js -->
+  <script src="js/libs/cryptojs/components/core-min.js"></script>
+  <script src="js/libs/cryptojs/components/enc-base64-min.js"></script>
+  <script src="js/libs/cryptojs/components/enc-utf16-min.js"></script>
+  <script src="js/libs/cryptojs/rollups/aes.js"></script>
+  <script src="js/libs/cryptojs/rollups/sha512.js"></script>
+
+  <!-- zip -->
+  <script type="text/javascript" src="js/libs/zip/jszip.min.js"></script>
+  <script type="text/javascript" src="js/libs/zip/jszip-utils.min.js"></script>
+
+  <!-- jssip -->
+  <script type="text/javascript" src="js/libs/jssip-3.8.0.js"></script>
+
+  <!-- plotter -->
+  <script type="text/javascript" src="js/libs/flot/jquery.flot.js"></script>
+  <script type="text/javascript" src="js/libs/flot/jquery.flot.time.min.js"></script>
+  <script type="text/javascript" src="js/libs/flot/jquery.flot.navigate.js"></script>
+  <!--<script type="text/javascript" src="js/flot/jquery.flot.axislabels.js"></script>-->
+  <!--<script type="text/javascript" src="js/flot/jquery.flot.touch.js"></script>-->
+  <!-- formatting -->
+  <script type="text/javascript" src="js/libs/stringformat/stringformat.src.js"></script>
+  <script type="text/javascript" src="js/libs/stringformat/cultures/stringformat.de-DE.js"></script>
+
+  <script type="text/javascript" src="js/libs/colophonetics.js"></script>
+
+  <!-- calendar -->
+  <script type="text/javascript">
+    $.browser = $.browser || {};
+    $.ui = $.ui || {};
+  </script>
+
+  <script type="text/javascript" src="js/circolor.js"></script>
+  <script type="text/javascript" src="js/custom-scripting.js"></script>
+  <script type="text/javascript" src="js/sipclient.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/eisbaer/RtspStream.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerNestedList.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerPages.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerStart.js"></script>
+  <script type="text/javascript" src="js/mycalendar.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerLocale.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerFile.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerDownload.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerSync.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerSupport.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerWindowsZones.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerTime.js"></script>
+  <!--<script type="text/javascript" src="js/eisbaer/eisbaerTimeZones.js"></script>-->
+  <script type="text/javascript" src="js/eisbaer/eisbaerColors.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerData.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerServer.js"></script>
+  <script type="text/javascript" src="js/eisbaer/EisWebSocket.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerSocket.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerUser.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerDataPackets.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerMediaLibrary.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerTouch.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerSettings.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerFormat.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerPush.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerSpeech.js"></script>
+  <script type="text/javascript" src="js/eisbaer/eisbaerVersion.js"></script>
+  <script type="text/javascript" src="js/eisbaer/viewmodel/viewmodel.js"></script>
+  <script type="text/javascript" src="js/eisbaer/viewmodel/visibleviewmodel.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/buttonComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/polygonButtonComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/switchTextComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/switchTextComponent/datatypes.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/heatingClimateComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/handAutomaticSwitchComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/multiStateFanSwitchComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/controllerComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/colorShowEditorComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/dateTimeDisplay.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/flipDateTimeDisplay.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/analogClockComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/switchPageComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/textComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/pictureComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/panelComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/webBrowserComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/touchInputComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/textEditComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/richTextComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/doorPhoneComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedListComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/changeCultureComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/circularGaugeComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/linearGaugeComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/smileComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/codeLockComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/colorPickerComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/marqueeTextComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/alarmIndicatorComponent.js"></script>
+  <script type="text/javascript" src="js/plugins/LaunchMyApp.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/faultManagerDisplayComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/faultManagerDisplayComponent/active.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/faultManagerDisplayComponent/history.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/faultManagerDisplayComponent/pending.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/faultManagerDisplayComponent/definition.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/calendarEditorComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/calendarEditorComponent/translation.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/calendarEditorComponent/calendar.dialog.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/calendarEditorComponent/calendar.utility.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/calendarEditorComponent/calendar.event.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/calendarEditorComponent/calendar.action.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/changeUserComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/plotterComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/plotterComponent/channelList.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/plotterComponent/translation.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/qrCodeComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/switchPageComboBoxComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/animatedControllerComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/lightSceneDisplayComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/lightSceneDisplayComponent/lightSceneData.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/mJpegDecoderComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/consumptionValueComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/consumptionValueComponent/translation.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/consumptionValueComponent/channelEditor.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/alarmClockEditorComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/alarmClockEditorComponent/translation.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/alarmClockEditorComponent/channelEditor.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/alarmClockEditorComponent/dtpconvert.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/daliDisplayComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/daliDisplayComponent/translation.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/maximumMonitorEditorComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/maximumMonitorEditorComponent/translation.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/themeSelectorComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/spNetLoggerComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/animatorComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/mediaViewerComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/startProgramComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/simplePieChartComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/simpleCalendarComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/lookUpEditorOrgComponent.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlSwitchButton.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlDimmerController.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlJalousieControl.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlSwitchText.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlRtrProfilControl.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlActionControl.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlCamControl.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlColorShowControl.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlDoorPhone.js"></script>
+  <script type="text/javascript" src="js/eisbaer/components/nestedList/nlSimpleCalendar.js"></script>
+  <script type="text/javascript" src="js/eisbaer/componentFactory.js"></script>
+  <script type="text/javascript" src="js/devicevents.js"></script>
+  <script type="text/javascript" src="js/handleOpenURL.js"></script>
+
+  <title>EisBaer</title>
+</head>
+
+<body ondragstart="return false;" ondrop="return false;">
+  <div data-role="page" id="index" style="position: relative; padding: 6px 0 8px">
+    <div data-role="header" style="background: #008FB5; border: none" data-id="header" data-position="fixed"
+      data-disable-page-zoom="false" data-tap-toggle="false">
+      <h1>Home</h1>
+
+      <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+        <!-- <a href="#" id="group-button" data-role="button" data-icon="grid" onClick="eisbaerMode.toggleGroupMode()" data-iconpos="notext">gruppieren</a> -->
+        <a href="#" class="r-color" data-role="button" data-icon="refresh" onClick="eisbaerMode.restart()" data-iconpos="notext">Sync</a>
+      </div>
+    </div>
+    <div data-role="content" id="content">
+      <div id="nested-list-mode"></div>
+    </div>
+
+    <script type="text/javascript">
+
+    </script>
+    <div data-role="footer" data-id="myfooter1" data-position="fixed" data-disable-page-zoom="false"
+      data-tap-toggle="false" style="border: none">
+      <div data-role="navbar" data-translate="true">
+        <ul>
+          <li>
+            <a
+                href="index.html"
+                data-icon="outinle-home"
+                data-transition="slide"
+                class="ui-btn-active ui-state-persist"
+                data-translation="footer_home"
+                >$TR:footer_home$</a>
+          </li>
+
+          <li>
+            <a href="settings.html?scan=1" data-icon="qrcode" data-transition="slide" data-ajax="false" data-translation="footer_scan"
+                >$TR:footer_scan$</a>
+          </li>
+          <li>
+            <a href="settings.html" data-icon="footer-gear" data-transition="slide" data-ajax="false" data-translation="footer_settings"
+                >$TR:footer_settings$</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="footer" data-id="myfooter2" data-position="fixed" data-disable-page-zoom="false"
+      data-tap-toggle="false" style="display: none; border: none">
+      <div data-role="navbar" data-translate="true">
+        <ul>
+          <li>
+            <a
+                href="index.html"
+                data-icon="outinle-home"
+                data-transition="slide"
+                data-ajax="false"
+                class="ui-btn-active ui-state-persist"
+                data-translation="footer_home"
+                >$TR:footer_home$</a>
+          </li>
+          <li>
+            <a href="" id="speech-button" data-icon="microphone" data-transition="slide" data-translation="footer_speech"
+                >$TR:footer_speech$</a>
+          </li>
+          <li>
+            <a href="settings.html?scan=1" data-icon="qrcode" data-transition="slide" data-ajax="false" data-translation="footer_scan"
+                >$TR:footer_scan$</a>
+          </li>
+          <li>
+            <a href="settings.html" data-icon="footer-gear" data-transition="slide" data-ajax="false" data-translation="footer_settings"
+                >$TR:footer_settings$</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="page-mode">
+    <div id="zoom-wrapper">
+      <div id="scroller"></div>
+    </div>
+    <div id="page-mode-noscale"></div>
+  </div>
+  <div id="bottom_bar" data-translate="true">
+    <div data-role="controlgroup" data-type="horizontal">
+      <a data-role="button" data-icon="outinle-home" data-inline="true" data-iconpos="notext" onClick="eisbaerMode.goHome();"
+          >$TR:footer_home$</a>
+      <a
+          data-role="button"
+          data-icon="portrait"
+          class="toggle"
+          data-inline="true"
+          data-iconpos="notext"
+          onClick="eisbaerMode.toggleViewMode();"
+          >$TR:footer_portrait$</a>
+      <a data-role="button" data-icon="footer-gear" data-inline="true" data-iconpos="notext" onClick="location.href='settings.html';"
+          >$TR:footer_settings$</a>
+    </div>
+  </div>
+  <script type="text/javascript"></script>
+</body>
+
+</html>
