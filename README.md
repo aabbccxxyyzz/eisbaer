@@ -41,5 +41,7 @@ zh: { 中文翻译 <br/>
 5，C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\index.html<br/>
 修改默认语言<br/>
 
-var locale = ‘zh_CN’;
+var locale = ‘zh_CN’;<br/>
 
+6,C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\js\eisbaer\eisbaerLocale.js<br/>
+替换部分内容为zh
