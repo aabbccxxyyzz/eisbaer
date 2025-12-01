@@ -44,4 +44,6 @@ zh: { 中文翻译 <br/>
 var locale = ‘zh_CN’;<br/>
 
 6,C:\Program Files\Alexander Maier GmbH\EisBär 4.0\www\Webapp\js\eisbaer\eisbaerLocale.js<br/>
-替换部分内容为zh
+替换部分内容为zh/zh_CN <br/>
+
+本修改基于EisBaer V4.0.10172.4202版本完成，其余版本修改类似。
